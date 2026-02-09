@@ -1,0 +1,47 @@
+import time
+import winsound
+
+def pomorodo_strict_timer_main_engine1(focus1: int = 1500, break1: int = 300, long_break1: int = 900, set1: int = 4):
+    print("Starting...")
+    time.sleep(2)
+    winsound.Beep(300, 580)
+    winsound.Beep(350, 580)
+    winsound.Beep(400, 580)
+    winsound.Beep(450, 580)
+    print("Started!")
+    while True:
+        for i in range(1, set1 + 1):
+            print("Pomorodo Set:", i)
+            if i == set1:
+                print("Focus!")
+                for i2 in range(1, focus1 + 1):  # Focus
+                    print(i2, "(Focus)")
+                    time.sleep(1)
+                winsound.Beep(400, 1000)
+                winsound.Beep(420, 1000)
+                print("Long Break!")
+                for i3 in range(1, long_break1 + 1):  # Long Break
+                    print(i3, "(Long Break)")
+                    time.sleep(1)
+                winsound.Beep(400, 750)
+                winsound.Beep(350, 650)
+                winsound.Beep(300, 750)
+            else:
+                print("Focus!")
+                for i2 in range(1, focus1 + 1):  # Focus
+                    print(i2, "(Focus)")
+                    time.sleep(1)
+                winsound.Beep(400, 1000)
+                winsound.Beep(420, 1000)
+                print("Break!")
+                for i3 in range(1, break1 + 1):  # Break
+                    print(i3, "(Break)")
+                    time.sleep(1)
+                winsound.Beep(400, 750)
+                winsound.Beep(350, 650)
+
+
+def executive_engine1():
+    pomorodo_strict_timer_main_engine1(focus1 = 1500, break1 = 300, long_break1 = 900, set1 = 4)
+
+executive_engine1()
