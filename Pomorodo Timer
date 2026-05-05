@@ -1,7 +1,8 @@
 import time
 import winsound
 
-def pomorodo_strict_timer_main_engine1(focus1: int = 1500, break1: int = 300, long_break1: int = 900, set1: int = 4):
+
+def pomorodo_timer_main_engine1(focus1: int = 1500, break1: int = 300, long_break1: int = 900, set1: int = 4):
     print("Starting...")
     time.sleep(2)
     winsound.Beep(300, 580)
@@ -9,8 +10,8 @@ def pomorodo_strict_timer_main_engine1(focus1: int = 1500, break1: int = 300, lo
     winsound.Beep(400, 580)
     winsound.Beep(450, 580)
     print("Started!")
-    while True:
-        for i in range(1, set1 + 1):
+
+    for i in range(1, set1 + 1):
             print("Pomorodo Set:", i)
             if i == set1:
                 print("Focus!")
@@ -42,6 +43,42 @@ def pomorodo_strict_timer_main_engine1(focus1: int = 1500, break1: int = 300, lo
 
 
 def executive_engine1():
-    pomorodo_strict_timer_main_engine1(focus1 = 1500, break1 = 300, long_break1 = 900, set1 = 4)
+    print("Pomorodo Timer Version 2.0")
+    print("To stop the program anytime, just simply click on the cross button of the window or press alt + f4")
+    while True:
+        user_input1 = input("Default pomorodo timer or customize?(d for default and c for customize) ")
+
+        if user_input1 == 'd':
+            pomorodo_timer_main_engine1()
+        elif user_input1 == 'c':
+            print("NOTE: The input is accepted in seconds")
+
+            while True:
+                focus_inp1 = input("Enter the time where you will focus: ")
+                if focus_inp1.isdigit():
+                    focus_inp1 = int(focus_inp1)
+                else:
+                    print("Enter number and do not put gaps if you have.")
+                break_inp1 = input("Enter the time where you will take a break: ")
+                if break_inp1.isdigit():
+                    break_inp1 = int(break_inp1)
+                else:
+                    print("Enter number and do not put gaps if you have.")
+                break_inp2 = input("Enter the time where you will take a long break: ")
+                if break_inp2.isdigit():
+                    break_inp2 = int(break_inp2)
+                else:
+                    print("Enter number and do not put gaps if you have.")
+                set_inp1 = input("After how many focus sessions you want to have long break and end?(Putting 0 as input causes malfunction): ")
+                if set_inp1.isdigit():
+                    set_inp1 = int(set_inp1)
+                else:
+                    print("Enter number and do not put gaps if you have.")
+                time.sleep(1)
+                break
+            pomorodo_timer_main_engine1(focus_inp1, break_inp1, break_inp2, set_inp1)
+
+
+
 
 executive_engine1()
